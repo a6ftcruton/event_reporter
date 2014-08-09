@@ -1,0 +1,2 @@
+class EventReporter
+end
