@@ -13,6 +13,7 @@ class AttendeeTest < MiniTest::Test
     attendee = Attendee.new(data)
     assert_equal data[:first_name], attendee.first_name
     assert_equal data[:last_name], attendee.last_name
+    assert_equal data[:email], attendee.email
     assert_equal data[:phone_number], attendee.phone_number
   end
 
@@ -40,5 +41,5 @@ class AttendeeTest < MiniTest::Test
     attendee.zipcode = "12345"
     assert_equal "12345", attendee.zipcode
   end
-  
+
 end

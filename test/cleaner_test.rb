@@ -70,4 +70,42 @@ class CleanerTest < MiniTest::Test
       assert_equal "Smith", attendee.last_name
     end
 
+    # Address tests
+
+    def test_it_capitalizes_first_letter_if_word_boundary_starts_with_letter
+      data = {:street => "60 main st"}
+      attendee = Attendee.new(data)
+      assert_equal "60 Main St", attendee.street
+
+      data = {:street => "7 mountain VIEW ave"}
+      attendee = Attendee.new(data)
+      assert_equal "7 Mountain View Ave", attendee.street
+
+      data = {:street => "8976 e 65th ct #1"}
+      attendee = Attendee.new(data)
+      assert_equal "8976 E 65th Ct #1", attendee.street
+    end
+
+    def test_it_standardizes_city_name
+      data = {:city => "colorado springs"}
+      attendee = Attendee.new(data)
+      assert_equal "Colorado Springs", attendee.city
+
+      data = {:city => nil}
+      attendee = Attendee.new(data)
+      assert_equal "", attendee.city
+    end
+
+    # State tests
+
+    def test_it_standardizes_state_abbreviation
+      data = {:state => "va"}
+      attendee = Attendee.new(data)
+      assert_equal "VA", attendee.state
+
+      data = {:state => nil}
+      attendee = Attendee.new(data)
+      assert_equal "", attendee.state
+    end
+
 end

@@ -8,10 +8,6 @@ class Cleaner
     last_name.to_s.downcase.capitalize
   end
 
-  def zipcode(zipcode)
-    zipcode.to_s.rjust(5, "0")[0..4]
-  end
-
   def phone_number(number)
     if number
       number = number.scan(/[0-9]/).join
@@ -24,6 +20,30 @@ class Cleaner
 
     return number
     end
+  end
+
+  def street(street)
+    fix_street = street.to_s.split(/\b/)
+    fix_street.map do |street|
+       street.capitalize!
+     end
+       fix_street.join
+  end
+
+  def city(city)
+    fix_city = city.to_s.split(/\b/)
+    fix_city.map do |city|
+       city.capitalize!
+     end
+       fix_city.join
+  end
+
+  def state(state_code)
+    state_code.to_s.upcase
+  end
+
+  def zipcode(zipcode)
+    zipcode.to_s.rjust(5, "0")[0..4]
   end
 
 end
