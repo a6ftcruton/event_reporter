@@ -1,5 +1,13 @@
 class Cleaner
 
+  def first_name(first_name)
+    first_name.to_s.downcase.capitalize
+  end
+
+  def last_name(last_name)
+    last_name.to_s.downcase.capitalize
+  end
+
   def zipcode(zipcode)
     zipcode.to_s.rjust(5, "0")[0..4]
   end

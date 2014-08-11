@@ -42,9 +42,32 @@ class CleanerTest < MiniTest::Test
       assert_equal "09802", attendee.zipcode
     end
 
-    def test_it_can_standardize_nil
+    def test_it_can_create_standard_zipcode_from_nil
       data = {:zipcode => nil}
       attendee = Attendee.new(data)
       assert_equal "00000", attendee.zipcode
     end
+
+    # First name tests
+
+    def test_it_standardizes_entire_first_name
+      data = {:first_name => "aNdReW"}
+      attendee = Attendee.new(data)
+      assert_equal "Andrew", attendee.first_name
+    end
+
+    # def test_it_standardizes_first_names_with_spaces
+    #   data = {:first_name => "mary kate"}
+    #   attendee = Attendee.new(data)
+    #   assert_equal "Mary Kate", attendee.first_name
+    # end
+
+    # Last name tests
+
+    def test_it_standardizes_entire_last_name
+      data = {:last_name => "sMitH"}
+      attendee = Attendee.new(data)
+      assert_equal "Smith", attendee.last_name
+    end
+
 end

@@ -6,8 +6,8 @@ class Attendee
 
   def initialize(input = {} )
     cleaner             = Cleaner.new
-    @first_name         = input[:first_name]
-    @last_name          = input[:last_name]
+    @first_name         = cleaner.first_name(input[:first_name])
+    @last_name          = cleaner.last_name(input[:last_name])
     @phone_number       = cleaner.phone_number(input[:phone_number])
     @zipcode            = cleaner.zipcode(input[:zipcode])
   end
