@@ -1,2 +1,2 @@
-
--*setup method to testing suites
+- write the load function (open csv / flush data out)
+- implement CLI

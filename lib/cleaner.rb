@@ -25,17 +25,17 @@ class Cleaner
   def street(street)
     fix_street = street.to_s.split(/\b/)
     fix_street.map do |street|
-       street.capitalize!
-     end
-       fix_street.join
+      street.capitalize!
+    end
+    fix_street.join
   end
 
   def city(city)
     fix_city = city.to_s.split(/\b/)
     fix_city.map do |city|
-       city.capitalize!
-     end
-       fix_city.join
+      city.capitalize!
+    end
+    fix_city.join
   end
 
   def state(state_code)
