@@ -1,5 +1,13 @@
 class Printer
 
+  def greet_user
+    puts "Greetings!"
+  end
+
+  def prompt_for_input
+    puts "Enter your command: "
+  end
+
   def help(command="help_instructions", option="")
     case command
     when "help_instructions" then help_instructions
@@ -12,7 +20,11 @@ class Printer
   end
 
   def help_instructions
-    "These are the commands you may enter: "
+    puts "These are the commands you may enter: "
+    puts "\thelp"
+    puts "\tload"
+    puts "\tqueue"
+    puts "\tfind"
   end
 
   def load_csv
@@ -34,5 +46,6 @@ class Printer
   def find(option)
     "Loads the queue with all the records matching the criteria for the given attribute."
   end
+
 
 end

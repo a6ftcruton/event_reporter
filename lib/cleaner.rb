@@ -9,17 +9,26 @@ class Cleaner
   end
 
   def phone_number(number)
-    if number
-      number = number.scan(/[0-9]/).join
-      if number.length == 11 && number.start_with?("1")
-        number = number[1..-1]
-      end
-      if number.length != 10
-        number = "0000000000"
-      end
-
-    return number
+    number = number.to_s.scan(/[0-9]/).join
+    case
+    when number.length > 10 then number[1..10]
+    when number.length < 10 then "0000000000"
+    else
+      number
     end
+
+    #
+    # if number
+    #   number = number.scan(/[0-9]/).join
+    #   if number.length == 11 && number.start_with?("1")
+    #     number = number[1..-1]
+    #   end
+    #   if number.length != 10
+    #     number = "0000000000"
+    #   end
+    #
+    # return number
+    # end
   end
 
   def street(street)

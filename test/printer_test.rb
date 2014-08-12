@@ -22,5 +22,9 @@ class PrinterTest < Minitest::Test
     assert_equal "Outputs number of records in current queue.", @printer.help("queue", "count")
   end
 
+  def test_it_greets_the_user
+    assert_equal "Greetings!", printer.greet_user
+  end
+
 
 end
