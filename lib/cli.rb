@@ -22,7 +22,7 @@ class CLI
     option  = input[1]
     criteria = input[2]
     case command
-    # when 'load'  then Repository.new
+    when "load"  then Repository.new
     when "help" then printer.help(input[1], input[2])
     # when 'queue' then puts 'QUEUEING'
     # when 'find'  then puts 'FINDING'
