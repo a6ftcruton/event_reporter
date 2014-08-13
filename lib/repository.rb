@@ -6,18 +6,18 @@ class Repository
 
   def initialize(filepath="test_csv.csv")
     @attendees = open_file(filepath)
+    #open_file(filepath)
   end
-
-  private
 
   def open_file(filepath)
     contents = CSV.open(filepath, headers: true, header_converters: :symbol)
-    contents.map { |row| Attendee.new(row) }
+    contents.map { |row| p Attendee.new(row) }
+
   end
 
-  def find_by(attribute, user_input)
+  def find_by(option, criteria)
     attendees.map do |attendee|
-      attendee.send(:attribute) == user_input
+      attendee.send(:option) == criteria
     end
   end
 

@@ -14,8 +14,8 @@ class Attendee
     cleaner            = Cleaner.new
     @first_name        = cleaner.first_name(input[:first_name])
     @last_name         = cleaner.last_name(input[:last_name])
-    @email             = input[:email]
-    @phone_number      = cleaner.phone_number(input[:phone_number])
+    @email             = input[:email_address]
+    @phone_number      = cleaner.phone_number(input[:homephone])
     @street            = cleaner.street(input[:street])
     @city              = cleaner.city(input[:city])
     @state             = cleaner.state(input[:state])

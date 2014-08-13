@@ -1,3 +1,5 @@
+require 'pry'
+
 class Cleaner
 
   def first_name(first_name)
@@ -11,15 +13,17 @@ class Cleaner
   def phone_number(number)
     number = number.to_s.scan(/[0-9]/).join
     case
+    when number.length == 10 then number
     when number.length > 10 then number[1..10]
     when number.length < 10 then "0000000000"
     else
       number
     end
+  end
 
     #
     # if number
-    #   number = number.scan(/[0-9]/).join
+    #   number = number.to_s.scan(/[0-9]/).join
     #   if number.length == 11 && number.start_with?("1")
     #     number = number[1..-1]
     #   end
@@ -29,7 +33,7 @@ class Cleaner
     #
     # return number
     # end
-  end
+
 
   def street(street)
     fix_street = street.to_s.split(/\b/)
