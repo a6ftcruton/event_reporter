@@ -1,30 +1,32 @@
+require 'pry'
 require_relative 'printer'
-require_relative 'load'
+require_relative 'repository'
 
 class CLI
 
   attr_reader :printer, :load
 
   def initialize
-    @printer = Printer.new
-    @load    = Load.new
+    @printer         = Printer.new
+    # @repository    = Repository.new
   end
 
   def start
     printer.greet_user
   end
 
-help queue
-
   def get_user_command
     printer.prompt_for_input
-    input = gets.downcase.strip()
-    case input
-    when 'load'  then Repository.new
-    # when 'help'  then puts 'HELPING'
+    input = gets.downcase.split(" ")
+    command = input[0]
+    option  = input[1]
+    criteria = input[2]
+    case command
+    # when 'load'  then Repository.new
+    when "help" then printer.help(input[1])
     # when 'queue' then puts 'QUEUEING'
     # when 'find'  then puts 'FINDING'
-  # when 'q'    then exit
+    # when 'q'    then exit
     else
       printer.help_instructions
     end
@@ -32,20 +34,20 @@ help queue
   end
 
 
-  input = gets.downcase.split(" ")
-  command = input[0]
-  option  = input[1]
-  criteria = input[2]
-
-  case input[0]
-  when queue
-    queue(option, criteria)
-  when load
-    load(option, criteria="")
-  when find
-    find(option)
-  else
-    printer.help_instructions
+  # input = gets.downcase.split(" ")
+  # command = input[0]
+  # option  = input[1]
+  # criteria = input[2]
+  #
+  # case input[0]
+  # when queue
+  #   queue(option, criteria)
+  # when load
+  #   load(option, criteria="")
+  # when find
+  #   find(option)
+  # else
+  #   printer.help_instructions
 
 
   # begin loop
@@ -60,5 +62,5 @@ end
 
 
 
-------
-repository.find_by(attribute, user_input)
+# ------
+# repository.find_by(attribute, user_input)
