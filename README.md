@@ -1,2 +1,3 @@
-- test that repository is loading from CLI 'load' command
+- use regex to delete to and by from input
+- use printer class to clean output from find
 - work on handling queries to 'find'

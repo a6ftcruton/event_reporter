@@ -60,5 +60,8 @@ class Printer
     puts "\tLoads the queue with all the records matching the criteria for the given attribute."
   end
 
+  def load_error_message
+    puts "You must load the file before you can use the find command to search it."
+  end
 
 end

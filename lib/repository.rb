@@ -1,4 +1,5 @@
 require 'csv'
+require_relative 'printer'
 require_relative 'attendee'
 
 class Repository
@@ -11,13 +12,13 @@ class Repository
 
   def open_file(filepath)
     contents = CSV.open(filepath, headers: true, header_converters: :symbol)
-    contents.map { |row| p Attendee.new(row) }
+    contents.map { |row| Attendee.new(row) }
 
   end
 
   def find_by(option, criteria)
-    attendees.map do |attendee|
-      attendee.send(:option) == criteria
+    attendees.select do |attendee|
+      p attendee if attendee.send(option.to_sym) == criteria
     end
   end
 
