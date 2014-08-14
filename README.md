@@ -1,3 +1,4 @@
-- add instructions for search terms homephone, first_name, etc.
 - address formatting tab delimited output from queue
-- adjust repository count method
+- incorporate proper headers
+- save data in proper format
+- redo queue to better handle data as CSV data

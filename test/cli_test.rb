@@ -12,10 +12,4 @@ class TestCLI < Minitest::Test
     cli = CLI.new
 
   end
-
-  # def test_user_can_quit_at_any_time
-  #   quit_input = flexmock(:quit => "Thank you.")
-  #   assert_equal "Thank you.", quit_input.quit
-  # end
-
 end

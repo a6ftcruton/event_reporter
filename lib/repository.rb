@@ -1,3 +1,4 @@
+require 'pry'
 require 'csv'
 require 'terminal-table'
 
@@ -13,13 +14,13 @@ class Repository
     build_attendee_by_row
   end
 
+  def build_attendee_by_row
+    @contents.map { |row| Attendee.new(row) }
+  end
+
   def find_by(option, criteria)
     attendees.select do |attendee|
       attendee.send(option.to_sym).downcase == criteria.downcase
     end
-  end
-
-  def build_attendee_by_row
-    @contents.map { |row| Attendee.new(row) }
   end
 end

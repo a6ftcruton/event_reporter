@@ -1,6 +1,4 @@
-require 'pry'                         # <= clean emails
-                                      # <= change name from cleaner to normalizer
-class Cleaner                         # <= remove downcase methods
+class Cleaner                       
   def first_name(first_name)
     first_name.to_s
   end
@@ -23,7 +21,6 @@ class Cleaner                         # <= remove downcase methods
   def street(street)
     fix_street = street.to_s.split(/\b/)
     fix_street.map
-    # fix_street.map(&:downcase)
     fix_street.join
   end
 
