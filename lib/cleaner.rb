@@ -1,4 +1,6 @@
-class Cleaner
+module Cleaner
+  extend self
+  
   def first_name(first_name)
     first_name.to_s
   end

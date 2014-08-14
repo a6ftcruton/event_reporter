@@ -24,6 +24,7 @@ class CLI
     when 'find' then validate_find_search(option, criteria)
     when 'queue' then queue_interaction(option, criteria)
     when 'quit' then exit
+    when 'q' then exit
     end
     get_user_command
   end
