@@ -1,7 +1,7 @@
 class Printer
 
   def greet_user
-    puts "\nGreetings!"
+    puts "\nWelcome to Event Reporter! If you're ready, enter your query command, otherwise type 'help' for instructions."
   end
 
   def prompt_for_input
@@ -24,15 +24,14 @@ class Printer
   end
 
   def help_instructions
-    puts "\nThese are the commands you may enter: "
-    puts "\thelp"
-    puts "\tload"
-    puts "\tqueue"
-    puts "\tfind"
-    puts "\nFor more specific information on a command, type 'help' plus"
-    puts "the command you want to learn about."
-    puts "\n\t\te.g. your input =>  help queue "
-    puts "\n\t\te.g. your input =>  help queue count "
+    puts "\nThese are the commands you may enter: \n "
+    puts "\t* help"
+    puts "\t* load"
+    puts "\t* queue"
+    puts "\t* find"
+    puts "\nFor more information on a command, type 'help' followed by a specific command.\n "
+    puts "\t* example: help queue"
+    puts "\t* example: help queue count"
   end
 
   def help_heading(command)
@@ -47,7 +46,7 @@ class Printer
     case criteria
     when "count"    then puts "\t[#{criteria}]: Outputs number of records in current queue."
     when "clear"    then puts "\t[#{criteria}]: Empties the queue."
-    when "print"    then puts "\t[#{criteria}]: Prints out a tab-delimited table with a header row."
+    when "print"    then puts "\t[#{criteria}]: Prints a tab-delimited table with a header row."
     when "print by" then puts "\t[#{criteria}]: Prints the data table sorted by the specified attribute."
     when "save to"  then puts "\t[#{criteria}]: Exports the current queue to the specified filename as a CSV."
     else
