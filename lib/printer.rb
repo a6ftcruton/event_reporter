@@ -1,5 +1,4 @@
 class Printer
-
   def greet_user
     puts "\nGreetings!"
   end
@@ -10,15 +9,14 @@ class Printer
 
   def help(command="help_instructions", option="", criteria="")
     if command.nil?
-      help_instructions   # <= refactor into case statement
+      help_instructions
     else
       case command
-      #when "help_instructions" then help_instructions # <= necessary?
       when "load"  then help_heading(command); load_csv
       when "queue" then help_heading(command); queue(option)
       when "find"  then help_heading(command); find(option)
       else
-        help_instructions #"An input has escaped you!"
+        help_instructions
       end
     end
   end
@@ -63,5 +61,4 @@ class Printer
   def load_error_message
     puts "You must load the file before you can use the find command to search it."
   end
-
 end

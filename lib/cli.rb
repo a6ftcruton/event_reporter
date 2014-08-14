@@ -1,15 +1,11 @@
 require 'pry'
-require_relative 'printer'
-require_relative 'repository'
 
 class CLI
-
   attr_reader :printer, :load, :repository, :queue
 
   def initialize
-    @printer         = Printer.new
-    @queue           = []
-    # @repository    = Repository.new
+    @printer      = Printer.new
+    @queue        = []
   end
 
   def start
@@ -18,32 +14,49 @@ class CLI
 
   def get_user_command
     printer.prompt_for_input
-    input = gets.downcase.split(" ")
-    command = input[0]
-    option  = input[1]
-    criteria = input[2]
+    input           = gets.downcase.gsub(/to | by /, "").split(" ")
+    command         = input[0]
+    option          = input[1]
+    criteria        = input[2]
+    #criteria_helper = input[3]
     case command
     when "load"
       @repository = Repository.new
     when "help" then printer.help(input[1], input[2])
-    # when 'queue' then puts 'QUEUEING'
     when 'find'
       if repository.nil?
-        printer.load_error_message
+        printer.load_error_message          # <= make this its own method
       elsif criteria.nil?
         printer.help_instructions
       else
-      repository.find_by(option, criteria)
+        @queue << repository.find_by(option, criteria) # <= helper method
       end
+    when 'queue' then queue_interaction(option, criteria)
     end
     get_user_command
   end
 end
 
-#when user enters 'find'
-#if repository not exist, print msg
 
-# queue.sort_by { |attendee| attendee.send(option.to_sym) }
+  def queue_interaction(option, criteria)
+    case option
+    when "count" then count_queue
+    when "clear" then clear_queue
+    when "print" then print_queue
 
-# ------
-# repository.find_by(attribute, user_input)
+    end
+  end
+
+# private?
+
+def count_queue
+  p queue.count
+end
+
+def clear_queue
+  @queue = []
+end
+
+def print_queue
+  p queue # => send this to the printer to be cleaned!!!!!
+end

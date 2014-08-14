@@ -1,3 +1,3 @@
-- use regex to delete to and by from input
 - use printer class to clean output from find
 - work on handling queries to 'find'
+- add instructions for search terms homephone, first_name, etc.

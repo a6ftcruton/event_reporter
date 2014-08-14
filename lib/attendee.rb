@@ -1,5 +1,3 @@
-require_relative 'cleaner'
-
 class Attendee
   attr_accessor :first_name,
                 :last_name,
