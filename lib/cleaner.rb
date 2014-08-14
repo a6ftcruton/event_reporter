@@ -1,6 +1,6 @@
 module Cleaner
   extend self
-  
+
   def first_name(first_name)
     first_name.to_s
   end
@@ -36,7 +36,7 @@ module Cleaner
 
 
   def state(state_code)
-    state_code.to_s
+    state_code.to_s.upcase
   end
 
   def zipcode(zipcode)
