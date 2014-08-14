@@ -62,6 +62,10 @@ class Printer
     puts "Your file has loaded..."
   end
 
+  def queue_loaded
+    puts "Queue successfully loaded."
+  end
+
   def load_error_message
     puts "You must load the file before you can use the find command to search it."
   end
