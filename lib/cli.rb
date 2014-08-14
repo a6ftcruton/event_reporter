@@ -21,6 +21,7 @@ class CLI
     #criteria_helper = input[3]
     case command
     when "load"
+      printer.load_message
       @repository = Repository.new
     when "help" then printer.help(input[1], input[2])
     when 'find'
@@ -35,7 +36,6 @@ class CLI
     end
     get_user_command
   end
-end
 
 
   def queue_interaction(option, criteria)
@@ -43,27 +43,31 @@ end
     when "count" then count_queue
     when "clear" then clear_queue
     when "print" then print_queue
+    when "save"  then save_queue(criteria)
     end
   end
 
-# private?
+  def count_queue
+    p queue.count
+  end
 
-def count_queue
-  p queue.count
-end
+  def clear_queue
+    @queue = []
+  end
 
-def clear_queue
-  @queue = []
-end
+  def save_queue(criteria)
+    CSV.open(criteria, "wb") do |csv|
+      csv << print_queue
+    end
+  end
 
-def print_queue
-  separate_attendees
-  #p queue # => send this to the printer to be cleaned!!!!!
-end
+  def print_queue
+    separate_attendees_by_row
+  end
 
-def separate_attendees
-  queue = @queue.flatten
-  queue.each do |attendee|
-    p attendee #.to_s.match(/[\w]/).gsub(/_/, " ") # split string on tab
+  def separate_attendees_by_row
+    queue = @queue.flatten
+    printer.table_header
+    printer.format_attendee_table(queue)
   end
 end

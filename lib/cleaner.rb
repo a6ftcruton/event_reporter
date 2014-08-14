@@ -22,7 +22,8 @@ class Cleaner                         # <= remove downcase methods
 
   def street(street)
     fix_street = street.to_s.split(/\b/)
-    fix_street.map(&:downcase)
+    fix_street.map
+    # fix_street.map(&:downcase)
     fix_street.join
   end
 
@@ -33,7 +34,7 @@ class Cleaner                         # <= remove downcase methods
   end
 
 
-  def state(state_code)         
+  def state(state_code)
     state_code.to_s
   end
 

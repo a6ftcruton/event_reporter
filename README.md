@@ -1,3 +1,3 @@
-- use printer class to clean output from find
-- work on handling queries to 'find'
 - add instructions for search terms homephone, first_name, etc.
+- address formatting tab delimited output from queue
+- adjust repository count method

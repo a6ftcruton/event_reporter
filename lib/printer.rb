@@ -1,6 +1,7 @@
 class Printer
   def greet_user
-    puts "\nGreetings!"
+    puts "\nWelcome to Event Reporter!"
+    puts "Enter your command when ready, otherwise type 'help' for more instructions."
   end
 
   def prompt_for_input
@@ -23,14 +24,13 @@ class Printer
 
   def help_instructions
     puts "\nThese are the commands you may enter: "
-    puts "\thelp"
-    puts "\tload"
-    puts "\tqueue"
-    puts "\tfind"
-    puts "\nFor more specific information on a command, type 'help' plus"
-    puts "the command you want to learn about."
-    puts "\n\t\te.g. your input =>  help queue "
-    puts "\n\t\te.g. your input =>  help queue count "
+    puts "\t* help"
+    puts "\t* load"
+    puts "\t* queue"
+    puts "\t* find"
+    puts "\nFor more information, type 'help' followed by a specific command."
+    puts "\n\t* e.g. help queue "
+    puts "\n\te.g. help queue count "
   end
 
   def help_heading(command)
@@ -45,7 +45,7 @@ class Printer
     case criteria
     when "count"    then puts "\t[#{criteria}]: Outputs number of records in current queue."
     when "clear"    then puts "\t[#{criteria}]: Empties the queue."
-    when "print"    then puts "\t[#{criteria}]: Prints out a tab-delimited table with a header row."
+    when "print"    then puts "\t[#{criteria}]: Prints a tab-delimited table with a header row."
     when "print by" then puts "\t[#{criteria}]: Prints the data table sorted by the specified attribute."
     when "save to"  then puts "\t[#{criteria}]: Exports the current queue to the specified filename as a CSV."
     else
@@ -58,7 +58,21 @@ class Printer
     puts "\tLoads the queue with all the records matching the criteria for the given attribute."
   end
 
+  def load_message
+    puts "Your file has loaded..."
+  end
+
   def load_error_message
     puts "You must load the file before you can use the find command to search it."
+  end
+
+  def table_header
+    puts "First \tLast \t\tEmail \t\t\tPhone Number \tStreet \tCity \tState \tZipcode"
+  end
+
+  def format_attendee_table(queue)
+    queue.each do |attendee|
+      puts "#{attendee.first_name}\t#{attendee.last_name}\t#{attendee.email}\t#{attendee.phone_number}\t#{attendee.street}\t#{attendee.city}\t#{attendee.state}\t#{attendee.zipcode}\n\n"
+    end
   end
 end
