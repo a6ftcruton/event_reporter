@@ -1,4 +1,3 @@
-require 'pry'
 class CLI
   attr_reader :printer, :load, :repository, :queue
 

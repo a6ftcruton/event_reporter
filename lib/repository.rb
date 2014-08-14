@@ -1,6 +1,4 @@
-require 'pry'
 require 'csv'
-require 'terminal-table'
 
 class Repository
   attr_reader :filepath, :attendees, :queue, :cli

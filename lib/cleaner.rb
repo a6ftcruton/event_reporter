@@ -1,4 +1,4 @@
-class Cleaner                       
+class Cleaner
   def first_name(first_name)
     first_name.to_s
   end
@@ -19,15 +19,17 @@ class Cleaner
   end
 
   def street(street)
-    fix_street = street.to_s.split(/\b/)
-    fix_street.map
-    fix_street.join
+    street.to_s
+          .split(/\s/)
+          .map(&:capitalize)
+          .join(" ")
   end
 
   def city(city)
-    fix_city = city.to_s.split(/\b/)
-    fix_city.map(&:downcase)
-    fix_city.join
+    city.to_s
+        .split(/\s/)
+        .map(&:capitalize)
+        .join(" ")
   end
 
 

@@ -10,6 +10,5 @@ class TestCLI < Minitest::Test
 
   def test_it_prints_instructions
     cli = CLI.new
-
   end
 end
