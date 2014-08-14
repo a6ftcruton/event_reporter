@@ -1,4 +1,7 @@
+require_relative 'cleaner'
+
 class Attendee
+  include Cleaner
   attr_accessor :first_name,
                 :last_name,
                 :email,
@@ -9,14 +12,14 @@ class Attendee
                 :zipcode
 
   def initialize(input = {})
-    cleaner            = Cleaner.new
-    @first_name        = cleaner.first_name(input[:first_name])
-    @last_name         = cleaner.last_name(input[:last_name])
+    #cleaner            = Cleaner.new
+    @first_name        = Cleaner.first_name(input[:first_name])
+    @last_name         = Cleaner.last_name(input[:last_name])
     @email             = input[:email_address]
-    @phone_number      = cleaner.phone_number(input[:homephone])
-    @street            = cleaner.street(input[:street])
-    @city              = cleaner.city(input[:city])
-    @state             = cleaner.state(input[:state])
-    @zipcode           = cleaner.zipcode(input[:zipcode])
+    @phone_number      = Cleaner.phone_number(input[:homephone])
+    @street            = Cleaner.street(input[:street])
+    @city              = Cleaner.city(input[:city])
+    @state             = Cleaner.state(input[:state])
+    @zipcode           = Cleaner.zipcode(input[:zipcode])
   end
 end

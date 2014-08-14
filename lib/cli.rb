@@ -23,6 +23,8 @@ class CLI
     when "help" then printer.help(input[1], input[2])
     when 'find' then validate_find_search(option, criteria)
     when 'queue' then queue_interaction(option, criteria)
+    when 'quit' then exit
+    when 'q' then exit
     end
     get_user_command
   end
@@ -64,6 +66,7 @@ class CLI
     elsif criteria.nil?
       printer.help_instructions
     else
+      printer.queue_loaded
       @queue << repository.find_by(option, criteria)
     end
   end
