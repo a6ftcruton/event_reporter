@@ -30,7 +30,7 @@ class Printer
     puts "\t* find"
     puts "\nFor more information, type 'help' followed by a specific command."
     puts "\n\t* e.g. help queue "
-    puts "\n\te.g. help queue count "
+    puts "\n\t* e.g. help queue count "
   end
 
   def help_heading(command)
@@ -71,8 +71,10 @@ class Printer
   end
 
   def format_attendee_table(queue)
-    queue.each do |attendee|
+    queue.map do |attendee|
       puts "#{attendee.first_name}\t#{attendee.last_name}\t#{attendee.email}\t#{attendee.phone_number}\t#{attendee.street}\t#{attendee.city}\t#{attendee.state}\t#{attendee.zipcode}\n\n"
     end
   end
+
+
 end

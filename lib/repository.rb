@@ -20,7 +20,7 @@ class Repository
 
   def find_by(option, criteria)
     attendees.select do |attendee|
-      attendee.send(option.to_sym).downcase == criteria.downcase
+      attendee if attendee.send(option.to_sym).downcase == criteria.downcase
     end
   end
 end
