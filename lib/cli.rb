@@ -43,7 +43,6 @@ end
     when "count" then count_queue
     when "clear" then clear_queue
     when "print" then print_queue
-
     end
   end
 
@@ -58,5 +57,13 @@ def clear_queue
 end
 
 def print_queue
-  p queue # => send this to the printer to be cleaned!!!!!
+  separate_attendees
+  #p queue # => send this to the printer to be cleaned!!!!!
+end
+
+def separate_attendees
+  queue = @queue.flatten
+  queue.each do |attendee|
+    p attendee #.to_s.match(/[\w]/).gsub(/_/, " ") # split string on tab
+  end
 end
